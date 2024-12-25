@@ -1,0 +1,12 @@
+
+
+.link{
+    color: darkblue;
+    font-size: 1rem;
+    transition: 0.2s ease-in-out;
+    margin-bottom: 5px;
+}
+
+.link:hover{
+    font-size: 1.1rem;
+}

@@ -1,0 +1,32 @@
+
+
+.navigation{
+    background-color: #282828;
+    padding: 5px;
+}
+
+.subNavigation{
+    background-color: #3465A4;
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 4px;
+    min-width: 200px;
+ 
+}
+
+.subLink{
+    border-bottom: 1px solid grey;
+    width: 100%;
+    padding: 10px 5px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+
+}
+
+.subLink:hover{
+    background-color: darkblue;
+}
+
+

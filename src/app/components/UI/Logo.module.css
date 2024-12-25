@@ -1,0 +1,16 @@
+
+
+.container{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+
+.logo_div{
+    width: 120px;
+    height: 120px;
+    background-color: darkblue;
+    margin-bottom: 10px;
+}
