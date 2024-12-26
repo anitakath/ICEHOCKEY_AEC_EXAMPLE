@@ -10,7 +10,12 @@
 .button {
     color: darkblue;
     padding: 10px 15px; 
-    font-size: 1rem;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    font-size: 0.8rem;
     transition: all 0.3s ease-in-out;
     border: 1px solid darkblue;
     border-radius: 5px;
@@ -36,4 +41,30 @@
 .boxShadow {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     transition: box-shadow 0.3s ease; 
+}
+
+
+.loadingTitle{
+    font-size: 2rem;
+    z-index: 1000;
+    margin-right: 10px;
+    margin-top: 20px;
+  
+}
+
+.loadingSpinner {
+    border: 8px solid rgba(0, 0, 0, 0.1); 
+    border-left-color: #000; 
+    border-radius: 50%;
+    width: 40px; 
+    height: 40px; 
+    animation: spin 1s linear infinite;
+    margin-top: 20px;
+    z-index: 1000;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg); 
+    }
 }

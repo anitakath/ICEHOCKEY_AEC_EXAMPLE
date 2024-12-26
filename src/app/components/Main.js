@@ -1,52 +1,54 @@
-import styles from './Main.module.css'; // STYLES
-import Logo from './UI/Logo'; // COMPONENTS
+"use client"
+import { useEffect, useState } from 'react';
+import styles from './Main.module.css'; 
+import Logo from './UI/Logo'; 
 import SideBar from './SideBar';
 
 const Main = () => {
-    const data = [
-        {
-            id: 1,
-            title: "Liebe AEC-Fans, Unterstützer und Freunde des Adendorfer Eishockeys!",
-            content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-        },
-        {
-            id: 2,
-            title: "Ein weiterer Titel",
-            content: "Hier ist ein weiterer Inhalt für das zweite Element."
-        },
-        {
-            id: 3,
-            title: "Neuigkeiten aus der AEC-Welt",
-            content: "Die neuesten Entwicklungen im Adendorfer Eishockey werden hier besprochen. Bleiben Sie dran für weitere Informationen!"
-        },
-        {
-            id: 4,
-            title: "Spieler des Monats",
-            content: "Wir feiern unseren Spieler des Monats! Er hat großartige Leistungen gezeigt und unser Team unterstützt."
-        },
-        {
-            id: 5,
-            title: "Nächste Spiele",
-            content: "Verpassen Sie nicht unsere nächsten Spiele! Hier sind die Termine und Gegner, gegen die wir antreten werden."
-        },
-        {
-            id: 6,
-            title: "Fanartikel erhältlich",
-            content: "Besuchen Sie unseren Shop für exklusive Fanartikel! Zeigen Sie Ihre Unterstützung für das Team mit Stil."
-        },
-        {
-            id: 7,
-            title: "Saisonabschlussfeier",
-            content: "Feiern Sie mit uns den Abschluss der Saison! Es wird ein großes Event mit vielen Aktivitäten geben."
-        }
-    ];
+
+    const [newsData, setNewsData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('/api/data'); 
+                if (!response.ok) {
+                    throw new Error('Netzwerkantwort war nicht ok');
+                }
+                const result = await response.json();
+                setNewsData(result); 
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+
+    if (loading) return (
+        <div className="h-screen relative bg-zinc-200 flex justify-center ">
+           
+               <h1 className={styles.loadingTitle}>Lade News...</h1>
+                <div className={styles.loadingSpinner}></div>
+
+        </div>
+    );
+
+    if (error) return <div>Error: {error}</div>;
+
 
     return (
         <div className={styles.container}>
             <div className={`w-4/5 ${styles.boxShadow}`}>
-                {data.map(item => (
+                {newsData.map(item => (
                     <div key={item.id} className='flex border-b border-zinc-300 my-2'>
-                        <div className='p-2'>
+                        <div className='p-2 flex flex-col items-center'>
                             <Logo />
                             <button className={styles.button}> weiterlesen...</button>
                         </div>
@@ -65,3 +67,6 @@ const Main = () => {
 };
 
 export default Main;
+
+
+
