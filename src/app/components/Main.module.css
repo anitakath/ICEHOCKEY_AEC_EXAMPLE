@@ -38,10 +38,12 @@
     margin: 5px 0px;
 }
 
-.boxShadow {
+.subContainer{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     transition: box-shadow 0.3s ease; 
+    width: 80%;
 }
+
 
 
 .loadingTitle{
@@ -49,7 +51,6 @@
     z-index: 1000;
     margin-right: 10px;
     margin-top: 20px;
-  
 }
 
 .loadingSpinner {
@@ -63,8 +64,29 @@
     z-index: 1000;
 }
 
+
+.sidebar {
+    width: 20%;
+}
+
+
 @keyframes spin {
     to {
         transform: rotate(360deg); 
+    }
+}
+
+
+@media screen and (max-width: 1200px){
+    .container{
+        flex-direction: column-reverse;
+    }
+
+    .subContainer{
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 100%; 
     }
 }

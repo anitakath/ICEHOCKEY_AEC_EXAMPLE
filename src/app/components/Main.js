@@ -4,6 +4,7 @@ import styles from './Main.module.css';
 import Logo from './UI/Logo'; 
 import SideBar from './SideBar';
 
+
 const Main = () => {
 
     const [newsData, setNewsData] = useState([]);
@@ -45,7 +46,7 @@ const Main = () => {
 
     return (
         <div className={styles.container}>
-            <div className={`w-4/5 ${styles.boxShadow}`}>
+            <div className={styles.subContainer}>
                 {newsData.map(item => (
                     <div key={item.id} className='flex border-b border-zinc-300 my-2'>
                         <div className='p-2 flex flex-col items-center'>
@@ -59,9 +60,10 @@ const Main = () => {
                     </div>
                 ))}
             </div>
-            <div className='bg-zinc-300 w-1/5 p-2'>
+            <div className={`bg-zinc-300 p-2 ${styles.sidebar}`}>
                 <SideBar />
             </div>
+                  
         </div>
     );
 };

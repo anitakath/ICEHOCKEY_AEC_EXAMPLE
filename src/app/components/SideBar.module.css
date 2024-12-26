@@ -1,12 +1,61 @@
 
 
-.link{
-    color: darkblue;
-    font-size: 1rem;
-    transition: 0.2s ease-in-out;
-    margin-bottom: 5px;
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
 }
 
-.link:hover{
-    font-size: 1.1rem;
+.subContainer{
+    width: 100%;
+}
+
+
+.nextGameDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    height: 200px;
+}
+
+
+.card, .card{
+    background-color: #bfdbfe; 
+    width: 100%; 
+    margin: 0.5rem 0px; 
+    height: 10rem; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    transition: box-shadow 0.3s ease; 
+    cursor: pointer;
+
+}
+
+.card:hover, .card:hover{
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+
+@media screen and (max-width: 1200px){
+    .container{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .subContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card{
+        height: 50px;
+    }
 }

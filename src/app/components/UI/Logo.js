@@ -2,14 +2,14 @@
 
 //STYLES
 import styles from './Logo.module.css'
-
+import Image from 'next/image'
 const Logo = () =>{
 
 
     return(
         <div className={styles.container}>
             <div className={styles.logo_div}>
-            <h1> LOGO </h1>
+                <Image src="/images/Adendorfer_EC.svg.png" width={200} height={200} />
             </div>
         
         </div>

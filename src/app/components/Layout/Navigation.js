@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState, useEffect} from 'react';
 import styles from './Navigation.module.css';
+import LoginButton from '../UI/LoginButton';
 
 const Navigation = () => {
   const [infoOpen, setInfoOpen] = useState(false);
@@ -32,6 +33,7 @@ const Navigation = () => {
   return (
     <div className={`${styles.navigation} ${isSticky ? styles.sticky : ''} flex  items-center`}>
       <Link href="/" className="mx-2 cursor-pointer">Home</Link>
+      
 
       <div 
         className={`${isSticky ? styles.stickyNavLinks : 'mx-2'} relative p-2 cursor-pointer `}

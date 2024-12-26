@@ -1,0 +1,18 @@
+.link{
+    color: darkblue;
+    font-size: 1rem;
+    transition: 0.2s ease-in-out;
+    margin-bottom: 5px;
+    padding: 20px 0px;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d4d4d8; 
+}
+
+.link:hover{
+    font-size: 1.1rem;
+}

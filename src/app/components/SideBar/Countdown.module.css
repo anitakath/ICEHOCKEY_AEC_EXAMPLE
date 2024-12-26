@@ -1,0 +1,46 @@
+/* Countdown.module.css */
+
+.container {
+    display: flex;
+    flex-direction: column; 
+    width: 100%; 
+    align-items: center; 
+    padding: 0.5rem;
+}
+
+.title {
+    font-size: 1.25rem; 
+}
+
+.days{
+    font-size: 1.5rem; 
+    margin: 1rem 0;
+}
+
+.details{
+    font-size: 0.75rem; 
+}
+
+@media screen and (max-width: 1200px){
+    .container{
+        width: 50%;
+        display: flex;
+    }
+
+    .title{
+        font-size: 1rem;
+        margin: 0px;
+    }
+
+    .days{
+        font-size: 1.2rem;
+        margin:  5px 0px;
+    }
+
+    .details{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}

@@ -2,11 +2,10 @@
     display: flex;
     justify-content: center; 
     margin-top: 20px;
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: 35px;
-    z-index: 1000;
-   
+    right: 35px;
+    z-index: 10000;
 }
 
 .loginButton {
