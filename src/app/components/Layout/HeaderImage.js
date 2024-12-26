@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import LoginButton from "../UI/LoginButton";
 
 const images = [
     "/images/pexels-tony-schnagl-6468730.jpg",
@@ -22,6 +23,7 @@ const HeaderImage = () => {
 
     return (
         <div className="h-60 relative overflow-hidden">
+            
             <div className="absolute inset-0 transition-transform duration-1000 ease-in-out" style={{ transform: `translateY(-${currentIndex * 100}%)` }}>
                 {images.map((src, index) => (
                     <div key={index} className="h-full w-full relative">

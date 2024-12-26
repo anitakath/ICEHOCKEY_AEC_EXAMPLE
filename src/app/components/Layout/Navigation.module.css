@@ -3,6 +3,22 @@
 .navigation{
     background-color: #282828;
     padding: 5px;
+    transition: all 0.4s ease;
+}
+
+
+.sticky {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.4s ease;
+    z-index: 1000;
+    padding: 15px;
+}
+
+.stickyNavLinks{
+    margin: 0px 15px;
 }
 
 .subNavigation{

@@ -1,6 +1,6 @@
 "use client";
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
@@ -10,13 +10,31 @@ const Navigation = () => {
   const [ergebnisseOpen, setErgebnisseOpen] = useState(false);
   const [fanzoneOpen, setFanzoneOpen] = useState(false);
   const [historieOpen, setHistorieOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+
+
+  const handleScroll = () => {
+    const offset = window.scrollY; 
+    if (offset > 240) {
+        setIsSticky(true); 
+    } else {
+        setIsSticky(false); 
+    }
+  };
+
+  useEffect(() => {
+      window.addEventListener("scroll", handleScroll); 
+      return () => {
+          window.removeEventListener("scroll", handleScroll); 
+      };
+  }, []);
 
   return (
-    <div className={`${styles.navigation} flex items-center`}>
+    <div className={`${styles.navigation} ${isSticky ? styles.sticky : ''} flex  items-center`}>
       <Link href="/" className="mx-2 cursor-pointer">Home</Link>
 
       <div 
-        className="relative p-2 cursor-pointer mx-2" 
+        className={`${isSticky ? styles.stickyNavLinks : 'mx-2'} relative p-2 cursor-pointer `}
         onMouseEnter={() => setInfoOpen(true)} 
         onMouseLeave={() => setInfoOpen(false)}
       >
@@ -32,7 +50,7 @@ const Navigation = () => {
       </div>
 
       <div 
-        className="relative p-2 cursor-pointer mx-2" 
+        className={`${isSticky ? styles.stickyNavLinks : 'mx-2'} relative p-2 cursor-pointer `}
         onMouseEnter={() => setHeidschnuckenOpen(true)} 
         onMouseLeave={() => setHeidschnuckenOpen(false)}
       >
@@ -48,7 +66,7 @@ const Navigation = () => {
       </div>
 
       <div 
-        className="relative p-2 cursor-pointer mx-2" 
+        className={`${isSticky ? styles.stickyNavLinks : 'mx-2'} relative p-2 cursor-pointer `}
         onMouseEnter={() => setNewsOpen(true)} 
         onMouseLeave={() => setNewsOpen(false)}
       >
@@ -64,7 +82,7 @@ const Navigation = () => {
       </div>
 
       <div 
-        className="relative p-2 cursor-pointer mx-2" 
+        className={`${isSticky ? styles.stickyNavLinks : 'mx-2'} relative p-2 cursor-pointer `}
         onMouseEnter={() => setErgebnisseOpen(true)} 
         onMouseLeave={() => setErgebnisseOpen(false)}
       >
@@ -79,7 +97,7 @@ const Navigation = () => {
 
       {/* Fanzone */}
       <div 
-        className="relative p-2 cursor-pointer mx-2"
+         className={`${isSticky ? styles.stickyNavLinks : 'mx-2'} relative p-2 cursor-pointer `}
         onMouseEnter={() => setFanzoneOpen(true)}
         onMouseLeave={() => setFanzoneOpen(false)}
       >
@@ -95,7 +113,7 @@ const Navigation = () => {
 
        {/* Historie */}
        <div 
-         className="relative p-2 cursor-pointer mx-2"
+          className={`${isSticky ? styles.stickyNavLinks : 'mx-2'} relative p-2 cursor-pointer `}
          onMouseEnter={() => setHistorieOpen(true)}
          onMouseLeave={() => setHistorieOpen(false)}
        >

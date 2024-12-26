@@ -2,6 +2,7 @@
 
 import styles from '../pagestyles/Kader.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 const spieler = {
     torwarte: [
         {
@@ -169,8 +170,14 @@ const spieler = {
 
 export default function Kader() {
     return (
-        <div className="border-2 w-4/5 p-2 bg-zinc-300 ">
-            <h1>Kader</h1>
+        <div className="border-2 w-4/5 p-2 bg-zinc-300 flex flex-col items-center ">
+            <h1 className={styles.title}>UNSER KADER Saison 2024/2025</h1>
+            <h2 className={styles.subTitle}> FÜR DIE REGIONALLIGA </h2>
+
+            <div className={styles.teamImgDiv}> 
+                <Image src="/images/pexels-paggiarofrancesco-793121.jpg"  width={900} height={900} className={styles.teamImg}/>
+            
+            </div>
              {/* Torwarte */}
              <h2 className='text-4xl mt-10'> GOALIES </h2>
              <div className={styles.subContainer}>
@@ -241,14 +248,14 @@ export default function Kader() {
            {/* Maskottchen */}
             {spieler.maskottchen.length > 0 && (
                 <>
-                    <h2  className='text-4xl'>Maskottchen</h2>
+                    <h2  className='text-4xl mt-10'>Maskottchen</h2>
+                    <div className={styles.subContainer}>
+
                     {spieler.maskottchen.map((maskottchen) => (
-                        <div key={maskottchen.id} className="border p-4 bg-white rounded shadow">
+                        <div key={maskottchen.id} className="border p-4 bg-white rounded shadow w-80">
                             {/* Hier kannst du das Bild des Maskottchens einfügen */}
                             <div className={styles.imageContainer}>
-                                {/* Beispielbild-Pfad anpassen */}
-                                {/*<img src={`path/to/image/${maskottchen.id}.jpg`} alt={`${maskottchen.name}`} />*/}
-                                <p>Image</p> {/* Platzhalter für das Bild */}
+                                <Image src="/Spieler/pexels-s-n-b-m-827240-1773181.jpg"  width={400} height={400} className={styles.img}/>
                             </div>
                             <h3>{maskottchen.name}</h3>
                             <p>Geburtstag: {maskottchen.geburtsdatum}</p>
@@ -259,8 +266,12 @@ export default function Kader() {
                             {/* Optional kannst du auch andere Informationen hinzufügen */}
                         </div>
                     ))}
+                    </div>
+                    
                 </>
             )}
+
+            <Link href="/" className={styles.backLink} > Zurück </Link>
             
 
          </div>
