@@ -3,12 +3,13 @@ import Link from 'next/link';
 import { useState, useEffect} from 'react';
 import styles from './Navigation.module.css';
 import LoginButton from '../UI/LoginButton';
+import Image from 'next/image';
 
 const Navigation = () => {
-  const [infoOpen, setInfoOpen] = useState(false);
   const [heidschnuckenOpen, setHeidschnuckenOpen] = useState(false);
+  const [ticketOpen, setTicketOpen] = useState(false)
+  const [clubOpen, setClubOpen] = useState(false)
   const [newsOpen, setNewsOpen] = useState(false);
-  const [ergebnisseOpen, setErgebnisseOpen] = useState(false);
   const [fanzoneOpen, setFanzoneOpen] = useState(false);
   const [historieOpen, setHistorieOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
@@ -32,47 +33,14 @@ const Navigation = () => {
 
   return (
     <div className={`${styles.navigation} ${isSticky ? styles.sticky : ''} flex  items-center`}>
-      <Link href="/" className="mx-2 cursor-pointer">Home</Link>
-      
 
-      <div 
-        className={`${isSticky ? styles.stickyNavLinks : 'mx-2'} relative p-2 cursor-pointer `}
-        onMouseEnter={() => setInfoOpen(true)} 
-        onMouseLeave={() => setInfoOpen(false)}
-      >
-        Info
-        {infoOpen && (
-          <div className={styles.subNavigation}>
-            <Link href="/impressum" className={styles.subLink}>Impressum</Link>
-            <Link href="/anfahrt" className={styles.subLink}>Anfahrt</Link>
-            <Link href="/tickets" className={styles.subLink}>Tickets</Link>
-            <Link href="/spielstaette" className={styles.subLink}>Spielstätte</Link>
-          </div>
-        )}
-      </div>
-
-      <div 
-        className={`${isSticky ? styles.stickyNavLinks : 'mx-2'} relative p-2 cursor-pointer `}
-        onMouseEnter={() => setHeidschnuckenOpen(true)} 
-        onMouseLeave={() => setHeidschnuckenOpen(false)}
-      >
-        die Heidschnucken
-        {heidschnuckenOpen && (
-          <div className={styles.subNavigation}>
-            <Link href="/scorer" className={styles.subLink}>Scorer</Link>
-            <Link href="/spielplan" className={styles.subLink}>Spielplan</Link>
-            <Link href="/kader" className={styles.subLink}>Kader</Link>
-            <Link href="/hinter-der-bande" className={styles.subLink}>Hinter der Bande</Link>
-          </div>
-        )}
-      </div>
-
-      <div 
-        className={`${isSticky ? styles.stickyNavLinks : 'mx-2'} relative p-2 cursor-pointer `}
+    <div className={styles.navigationDiv}>
+    <div 
+        className={`${isSticky ? styles.stickyNavLinks : 'mx-8'} relative p-2 cursor-pointer `}
         onMouseEnter={() => setNewsOpen(true)} 
         onMouseLeave={() => setNewsOpen(false)}
       >
-        News
+        NEWS
         {newsOpen && (
           <div className={styles.subNavigation}>
             <Link href="/aktuelles" className={styles.subLink}>Aktuelles</Link>
@@ -83,55 +51,113 @@ const Navigation = () => {
         )}
       </div>
 
+
       <div 
-        className={`${isSticky ? styles.stickyNavLinks : 'mx-2'} relative p-2 cursor-pointer `}
-        onMouseEnter={() => setErgebnisseOpen(true)} 
-        onMouseLeave={() => setErgebnisseOpen(false)}
+        className={`${isSticky ? styles.stickyNavLinks : 'mx-8'} relative p-2 cursor-pointer `}
+        onMouseEnter={() => setHeidschnuckenOpen(true)} 
+        onMouseLeave={() => setHeidschnuckenOpen(false)}
       >
-        Ergebnisse
-        {ergebnisseOpen && (
+        DIE HEIDSCHNUCKEN
+        {heidschnuckenOpen && (
           <div className={styles.subNavigation}>
-            <Link href="/regionalliga-nord" className={styles.subLink}>Regionalliga Nord</Link>
-            <Link href="/2024_2025" className={styles.subLink}>2024/2025</Link>
+            <Link href="/kader" className={styles.subLink}> Kader 2024/2025 </Link>
+            <Link href="/spielplan" className={styles.subLink}> Spielplan + Ergebnisse  2024/2025 </Link>
+            <Link href="/scorer" className={styles.subLink}> Top-Scorer </Link>
+            <Link href="/hinter-der-bande" className={styles.subLink}> Hinter der Bande </Link>
+          </div>
+        )}
+      </div>
+      <div 
+        className={`${isSticky ? styles.stickyNavLinks : 'mx-8 '} relative p-2 cursor-pointer `}
+        onMouseEnter={() => setTicketOpen(true)} 
+        onMouseLeave={() => setTicketOpen(false)}
+      >
+        TICKETS
+        {ticketOpen && (
+          <div className={styles.subNavigation}>
+            <Link href="/scorer" className={styles.subLink}>Ticket-Shop</Link>
+            <Link href="/spielplan" className={styles.subLink}>Dauerkarten</Link>
+            <Link href="/kader" className={styles.subLink}> Spielplan</Link>
           </div>
         )}
       </div>
 
-      {/* Fanzone */}
-      <div 
-         className={`${isSticky ? styles.stickyNavLinks : 'mx-2'} relative p-2 cursor-pointer `}
-        onMouseEnter={() => setFanzoneOpen(true)}
-        onMouseLeave={() => setFanzoneOpen(false)}
-      >
-        Fanzone
-        {fanzoneOpen && (
-          <div className={styles.subNavigation}>
-            <Link href="/liveticker" className={styles.subLink}>Liveticker</Link>
-            <Link href="/fanbeauftragter" className={styles.subLink}>Fanbeauftragter</Link>
-            <Link href="/multimedia" className={styles.subLink}>Multimedia</Link>  
-          </div>  
-         )}  
-       </div>  
+    </div>
+      
+    
+    
 
-       {/* Historie */}
-       <div 
-          className={`${isSticky ? styles.stickyNavLinks : 'mx-2'} relative p-2 cursor-pointer `}
+      <div className={styles.logoDiv}> 
+
+        <Image src="/images/Adendorfer_EC.svg.png" alt="Logo vom Adendorfer Eishockeyclub" width={100} height={100} className={`${isSticky ? styles.logoSticky : styles.logo}`}/>
+         
+      </div>
+
+
+      <div className={styles.navigationDiv}>
+        <div 
+          className={`${isSticky ? styles.stickyNavLinks : 'mx-8'} relative p-2 cursor-pointer `}
+          onMouseEnter={() => setClubOpen(true)} 
+          onMouseLeave={() => setClubOpen(false)}
+        >
+          CLUB
+          {clubOpen && (
+            <div className={styles.subNavigation}>
+              <Link href="/impressum" className={styles.subLink}>Organisation</Link>
+              <Link href="/impressum" className={styles.subLink}>Sponsoren </Link>
+              <Link href="/impressum" className={styles.subLink}> Werte </Link>
+              <Link href="/impressum" className={styles.subLink}> Historie </Link>
+              <Link href="/anfahrt" className={styles.subLink}>Nachwuchs</Link>
+              <Link href="/tickets" className={styles.subLink}>Stadion + Anfahrt</Link>
+            </div>
+          )}
+        </div>
+
+         {/* Fanzone */}
+        <div 
+          className={`${isSticky ? styles.stickyNavLinks : 'mx-8'} relative p-2 cursor-pointer `}
+          onMouseEnter={() => setFanzoneOpen(true)}
+          onMouseLeave={() => setFanzoneOpen(false)}
+        >
+          FANZONE
+          {fanzoneOpen && (
+            <div className={styles.subNavigation}>
+              <Link href="/liveticker" className={styles.subLink}>Fanclubs</Link>
+              <Link href="/fanbeauftragter" className={styles.subLink}>Fanshop</Link>
+              <Link href="/multimedia" className={styles.subLink}>Multimedia</Link> 
+              <Link href="/multimedia" className={styles.subLink}>Stadt Lüneburg</Link>
+              <Link href="/impressum" className={styles.subLink}> Fanbeauftrater </Link>   
+            </div>  
+          )}  
+        </div> 
+
+        {/* Kontakt */}
+        <div 
+          className={`${isSticky ? styles.stickyNavLinks : 'mx-8'} relative p-2 cursor-pointer `}
          onMouseEnter={() => setHistorieOpen(true)}
          onMouseLeave={() => setHistorieOpen(false)}
-       >
-         Historie
+        >
+         KONTAKT 
          {historieOpen && (
-           <div className={styles.subNavigation}>
-             <Link href="/geschichte-aec" className={styles.subLink}>Geschichte des AEC</Link>  
-             <Link href="/statistiken"  className={styles.subLink} >Statistiken</Link>  
+           <div className={styles.subNavigation}> 
+             <Link href="/statistiken"  className={styles.subLink}>Impresum + Anfahrt</Link> 
+             <Link href="/geschichte-aec" className={styles.subLink}>Sponsoring</Link>  
+             <Link href="/geschichte-aec" className={styles.subLink}> Hospitality</Link> 
+             <Link href="/geschichte-aec" className={styles.subLink}>Jobportal + Volunteering</Link> 
              {/* Hier kannst du die anderen Links hinzufügen */}
              {/* ... */}
            </div>  
          )}  
-       </div>  
+        </div>   
 
-       {/* Ticketshop */}
-       {/* Hier kannst du den Ticketshop-Punkt hinzufügen */}  
+
+      
+
+
+      </div>
+
+
+
      </div>  
    );  
 };  

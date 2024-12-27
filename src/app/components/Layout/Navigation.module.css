@@ -7,6 +7,32 @@
 }
 
 
+.navigationDiv{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+}
+
+.logoDiv{
+    position: relative;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    height: 80px;
+}
+
+.logo{
+    position: absolute;
+    top: -50px;
+    width: 200px;
+}
+
+.logoSticky{
+    position: absolute;
+    width: 100px;
+    top: -10px;
+}
+
 .sticky {
     position: fixed; 
     top: 0;
@@ -38,6 +64,7 @@
     padding: 10px 5px;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+   
 
 }
 

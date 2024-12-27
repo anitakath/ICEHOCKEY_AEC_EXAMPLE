@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "./components/Layout/Header";
 import Footer from "./components/Layout/Footer";
 import LoginButton from "./components/UI/LoginButton";
+import Image from "next/image";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +24,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
-  const background = { background: "#00003E" };
+  const background = {
+    backgroundImage: "url('/images/john-mcarthur-nX-hT9lR5QA-unsplash.jpg')",
+    backgroundSize: "cover", 
+    backgroundPosition: "center", 
+    height: "100vh", 
+};
   return (
     <html lang="en">
       <body
@@ -37,3 +44,5 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+

@@ -8,6 +8,7 @@ const NextGame = () => {
                 src="/images/pexels-freestockpro-3159812.jpg" 
                 width={400} 
                 height={200} 
+                alt="Team des Adendorfer Eishockeyclubs"
                 className={styles.image} 
             />
         </div>
