@@ -10,7 +10,13 @@
 .navigationDiv{
     width: 45%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.navigationTitle{
+    color: beige;
+    font-size: 0.9rem;
+    width: 100%;
 }
 
 .logoDiv{
@@ -19,11 +25,13 @@
     display: flex;
     justify-content: center;
     height: 80px;
+ 
 }
 
 .logo{
     position: absolute;
     top: -50px;
+    left: 10px;
     width: 200px;
 }
 
@@ -55,6 +63,7 @@
     flex-direction: column;
     margin: 4px;
     min-width: 200px;
+    z-index: 10000;
  
 }
 
@@ -64,12 +73,84 @@
     padding: 10px 5px;
     cursor: pointer;
     transition: 0.2s ease-in-out;
-   
-
 }
 
 .subLink:hover{
     background-color: darkblue;
 }
 
+.subSubNavigation{
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 105px;
+    width: 100%;
+    height: 9vh;
+    left: 0;
+    margin: 5px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
+
+.loginDiv{
+    width: 100px;
+    margin: 0px 10px;
+}
+
+
+.sponsorBannerDiv {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 90%;
+    overflow: hidden; 
+}
+
+.sponsorSlides {
+    display: flex;
+    transition: transform 0.5s ease-in-out; 
+}
+
+.sponsorSlide {
+    min-width: 100%; 
+    height: 100%;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    .navigation{
+        flex-direction: column;
+    }
+
+    .navigationDiv{
+        margin: 0;
+        display: none;
+    }
+
+    .logoDiv{
+        width: 100%;
+        height: 50px;
+    }
+
+    .logo{
+        width: 90px;
+        height: 90px;
+        top: -20px;
+        left: -20px;
+    }
+   
+    .navigationTitle{
+        margin:0;
+
+    }
+
+    .logoSticky{
+        z-index: 1000;
+        width: 70px;
+    }
+    .subSubNavigation{
+        top: 75px;
+    }
+    
+}

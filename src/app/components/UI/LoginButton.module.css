@@ -1,11 +1,6 @@
 .buttonContainer {
     display: flex;
     justify-content: center; 
-    margin-top: 20px;
-    position: fixed;
-    top: 0;
-    right: 35px;
-    z-index: 10000;
 }
 
 .loginButton {

@@ -2,8 +2,11 @@
 import Link from 'next/link';
 import { useState, useEffect} from 'react';
 import styles from './Navigation.module.css';
-import LoginButton from '../UI/LoginButton';
 import Image from 'next/image';
+import LoginButton from '../UI/LoginButton';
+import SponsorBanner from './SponsorBanner';
+import NavigationMobile from './NavigationMobile';
+
 
 const Navigation = () => {
   const [heidschnuckenOpen, setHeidschnuckenOpen] = useState(false);
@@ -31,16 +34,19 @@ const Navigation = () => {
       };
   }, []);
 
+
+ 
+
   return (
-    <div className={`${styles.navigation} ${isSticky ? styles.sticky : ''} flex  items-center`}>
+    <div className={`${styles.navigation} ${isSticky ? styles.sticky : ''} flex items-center`}>
 
     <div className={styles.navigationDiv}>
     <div 
-        className={`${isSticky ? styles.stickyNavLinks : 'mx-8'} relative p-2 cursor-pointer `}
+        className={`${isSticky ? styles.stickyNavLinks : ''} relative p-2 cursor-pointer `}
         onMouseEnter={() => setNewsOpen(true)} 
         onMouseLeave={() => setNewsOpen(false)}
       >
-        NEWS
+        <h2 className={styles.navigationTitle}> NEWS </h2>
         {newsOpen && (
           <div className={styles.subNavigation}>
             <Link href="/aktuelles" className={styles.subLink}>Aktuelles</Link>
@@ -53,11 +59,11 @@ const Navigation = () => {
 
 
       <div 
-        className={`${isSticky ? styles.stickyNavLinks : 'mx-8'} relative p-2 cursor-pointer `}
+        className={`${isSticky ? styles.stickyNavLinks : ''} relative p-2 cursor-pointer`}
         onMouseEnter={() => setHeidschnuckenOpen(true)} 
         onMouseLeave={() => setHeidschnuckenOpen(false)}
       >
-        DIE HEIDSCHNUCKEN
+        <h2 className={styles.navigationTitle}> DIE HEIDSCHNUCKEN </h2>
         {heidschnuckenOpen && (
           <div className={styles.subNavigation}>
             <Link href="/kader" className={styles.subLink}> Kader 2024/2025 </Link>
@@ -68,11 +74,11 @@ const Navigation = () => {
         )}
       </div>
       <div 
-        className={`${isSticky ? styles.stickyNavLinks : 'mx-8 '} relative p-2 cursor-pointer `}
+        className={`${isSticky ? styles.stickyNavLinks : ' '} relative p-2 cursor-pointer `}
         onMouseEnter={() => setTicketOpen(true)} 
         onMouseLeave={() => setTicketOpen(false)}
       >
-        TICKETS
+        <h2 className={styles.navigationTitle}> TICKETS </h2>
         {ticketOpen && (
           <div className={styles.subNavigation}>
             <Link href="/scorer" className={styles.subLink}>Ticket-Shop</Link>
@@ -90,17 +96,19 @@ const Navigation = () => {
       <div className={styles.logoDiv}> 
 
         <Image src="/images/Adendorfer_EC.svg.png" alt="Logo vom Adendorfer Eishockeyclub" width={100} height={100} className={`${isSticky ? styles.logoSticky : styles.logo}`}/>
-         
+        <NavigationMobile/>
       </div>
+
+    
 
 
       <div className={styles.navigationDiv}>
         <div 
-          className={`${isSticky ? styles.stickyNavLinks : 'mx-8'} relative p-2 cursor-pointer `}
+          className={`${isSticky ? styles.stickyNavLinks : ''} relative p-2 cursor-pointer `}
           onMouseEnter={() => setClubOpen(true)} 
           onMouseLeave={() => setClubOpen(false)}
         >
-          CLUB
+          <h2 className={styles.navigationTitle}> CLUB </h2>
           {clubOpen && (
             <div className={styles.subNavigation}>
               <Link href="/impressum" className={styles.subLink}>Organisation</Link>
@@ -115,11 +123,11 @@ const Navigation = () => {
 
          {/* Fanzone */}
         <div 
-          className={`${isSticky ? styles.stickyNavLinks : 'mx-8'} relative p-2 cursor-pointer `}
+          className={`${isSticky ? styles.stickyNavLinks : ''} relative p-2 cursor-pointer `}
           onMouseEnter={() => setFanzoneOpen(true)}
           onMouseLeave={() => setFanzoneOpen(false)}
         >
-          FANZONE
+          <h2 className={styles.navigationTitle}> FANZONE </h2>
           {fanzoneOpen && (
             <div className={styles.subNavigation}>
               <Link href="/liveticker" className={styles.subLink}>Fanclubs</Link>
@@ -133,11 +141,11 @@ const Navigation = () => {
 
         {/* Kontakt */}
         <div 
-          className={`${isSticky ? styles.stickyNavLinks : 'mx-8'} relative p-2 cursor-pointer `}
+          className={`${isSticky ? styles.stickyNavLinks : ''} relative p-2 cursor-pointer `}
          onMouseEnter={() => setHistorieOpen(true)}
          onMouseLeave={() => setHistorieOpen(false)}
         >
-         KONTAKT 
+         <h2 className={styles.navigationTitle}> KONTAKT </h2> 
          {historieOpen && (
            <div className={styles.subNavigation}> 
              <Link href="/statistiken"  className={styles.subLink}>Impresum + Anfahrt</Link> 
@@ -151,11 +159,17 @@ const Navigation = () => {
         </div>   
 
 
-      
-
-
       </div>
 
+      {isSticky && (
+        <div className={styles.subSubNavigation}>
+          <div className={styles.loginDiv}>
+            <LoginButton/>
+          </div>
+          <SponsorBanner/>
+        </div>
+      )}
+     
 
 
      </div>  

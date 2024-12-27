@@ -5,7 +5,7 @@ import Header from "./components/Layout/Header";
 import Footer from "./components/Layout/Footer";
 import LoginButton from "./components/UI/LoginButton";
 import Image from "next/image";
-
+import styles from './components/Layout/Header.module.css'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,13 +30,17 @@ export default function RootLayout({ children }) {
     backgroundPosition: "center", 
     height: "100vh", 
 };
+
   return (
     <html lang="en">
       <body
         className=" flex flex-col relative items-center"
         style={background}
       >
-        <LoginButton/>
+        <div className={styles.loginDiv}>
+          <LoginButton/>
+        </div>
+       
         <Header/>
         {children}
         <Footer/>
